@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Blog</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #333;
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --link-color: #2196F3;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            align-items: center;
+        }
+        header {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ccc;
+        }
+        #showcase {
+            background: url('https://www.microsoft.com/en-us/research/uploads/prod/2023/03/AI_Microsoft_Research_Header_1920x720.png') no-repeat center center/cover;
+            height: 300px;
+            text-align: center;
+            color: #fff;
+            margin-top: 60px;
+        }
+        #showcase .showcase-content {
+            padding-top: 70px;
+            background: rgba(0,0,0,0.5);
+            height: 100%;
+        }
+        #main {
+            float: left;
+            width: 70%;
+            padding: 20px;
+        }
+        #sidebar {
+            float: right;
+            width: 30%;
+            padding: 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .blog-post {
+            margin-bottom: 30px;
+        }
+        .blog-post h2 {
+            margin-bottom: 10px;
+        }
+        .blog-post .meta {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+        .blog-post img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 15px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #45a049;
+        }
+        footer {
+            background: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .social-links {
+            margin-top: 10px;
+        }
+        .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        #newsletter {
+            padding: 15px;
+            color: #fff;
+            background: #35424a;
+        }
+        #newsletter h3 {
+            float: left;
+        }
+        #newsletter form {
+            float: right;
+            margin-top: 15px;
+        }
+        #newsletter input[type="email"] {
+            padding: 4px;
+            height: 25px;
+            width: 250px;
+        }
+        .post-tags {
+            margin-bottom: 15px;
+        }
+        .tag {
+            display: inline-block;
+            background: #eee;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        #search {
+            margin-bottom: 20px;
+        }
+        #search input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .author-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .author-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .comment {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .comment .meta {
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 5px;
+        }
+        @media(max-width: 768px) {
+            header #branding,
+            header nav,
+            header nav li,
+            #newsletter h3,
+            #newsletter form,
+            #main,
+            #sidebar {
+                float: none;
+                text-align: center;
+                width: 100%;
+            }
+            header {
+                padding-bottom: 20px;
+            }
+            #showcase {
+                height: 200px;
+            }
+            #showcase .showcase-content {
+                padding-top: 40px;
+            }
+            #main, #sidebar {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+        @media(max-width: 480px) {
+            header li {
+                display: block;
+                padding: 10px 0;
+            }
+            #newsletter input[type="email"] {
+                width: 100%;
+            }
+            .social-links a {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Dev</span> Blog</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="showcase-content">
+            <h1>Welcome to Dev Blog</h1>
+            <p>Explore the latest in technology, coding trends, and industry insights.</p>
+        </div>
+    </section>
+
+    <section id="newsletter">
+        <div class="container">
+            <h3>Subscribe To Our Newsletter</h3>
+            <form>
+                <input type="email" placeholder="Enter Email...">
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="main">
+            <article class="blog-post card">
+                <img src="https://cdn.mos.cms.futurecdn.net/CBcmkyZ8v4tAc8PSDcEgvM-650-80.jpg.webp" alt="Blog Post Image">
+                <h2>Quantum Computing: The Next Frontier</h2>
+                <div class="author-info">
+                    <img src="https://raw.githubusercontent.com/devroshanthakur/my-assets/refs/heads/main/Profile.jpg" alt="Author">
+                    <span>Johnson</span>
+                </div>
+                <div class="meta">Posted on September 8, 2024 | 7 min read</div>
+                <div class="post-tags">
+                    <span class="tag">Quantum Computing</span>
+                    <span class="tag">Technology</span>
+                </div>
+                <p>Quantum computing holds the promise of processing data exponentially faster than traditional computers...</p>
+                <a href="#" class="btn">Read More</a>
+            </article>
+            
+            <!-- Additional tech-focused articles go here -->
+        </section>
+
+        <aside id="sidebar">
+            <div class="card">
+                <h3>About</h3>
+                <p>Dev Blog is your go-to source for in-depth articles on emerging technologies and development trends.</p>
+            </div>
+            <div class="card" id="search">
+                <h3>Search</h3>
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="card">
+                <h3>Recent Posts</h3>
+                <ul>
+                    <li><a href="#">Introduction to Blockchain</a></li>
+                    <li><a href="#">5G Network Explained</a></li>
+                    <li><a href="#">AI in Healthcare</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Dev Blog &copy; 2024</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
